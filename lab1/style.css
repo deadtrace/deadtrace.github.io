@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+}
+
+.grid {
+    text-align: center;
+    vertical-align: middle;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 5fr 2fr;
+    grid-template-areas:
+        "header header"
+        "description similar"
+        "toptracks topalbums"
+        "footer footer"
+}
+
+#header {
+    background-color: #DD5145;
+    grid-area: header;
+    height: 50px;
+}
+
+#description {
+    background-color: #4B8BF4;
+    grid-area: description;
+    height: 280px;
+}
+
+#similar {
+    background-color: #C341B6;
+    grid-area: similar;
+    height: 280px;
+}
+
+#toptracks {
+    background-color: #1CA261;
+    grid-area: toptracks;
+    height: 280px;
+}
+
+#topalbums {
+    background-color: #FFCD43;
+    grid-area: topalbums;
+    height: 280px;
+}
+
+#footer {
+    background-color: #DD5246;
+    grid-area: footer;
+    height: 52px;
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "description"
+        "similar"
+        "toptracks"
+        "topalbums"
+        "footer";
+    }
+}
