@@ -15,12 +15,23 @@ body.appendChild(saveButton);
 body.appendChild(document.createElement("br"));
 
 canvas = document.createElement("canvas");
-canvas.width = 1000;
-canvas.height = 1000;
-ctx = canvas.getContext('2d');
-var img = new Image();  // Создание нового объекта изображения
-img.src = 'image.jpg';
-img.onload = function() {
-  ctx.drawImage(img, 0, 0);
-  body.appendChild(canvas);
+canvas.width = 1500;
+canvas.height = 650;
+body.appendChild(canvas);
+
+context = canvas.getContext('2d');
+context.font = "bold 50px sans-serif";
+context.strokeStyle = "white";
+context.textAlign = "center";
+
+pic = new Image();
+pic.src = 
+  "https://source.unsplash.com/random/" +
+  canvas.width +
+  "x" +
+  canvas.height +
+  "?sig=" +
+  Math.floor(Math.random() * 10000);
+pic.onload = function() {
+  context.drawImage(pic, 0, 0);
 }
