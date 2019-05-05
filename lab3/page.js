@@ -31,8 +31,8 @@ function drawImages() {
   }
 
   pics[0].x = pics[0].y = pics[1].y = pics[2].x = 0;
-  pics[2].y = pics[3].y = 325;
-  pics[1].x = pics[3].x = 750;
+  pics[2].y = pics[3].y = Math.floor(canvas.height / 2);
+  pics[1].x = pics[3].x = Math.floor(canvas.width / 2);
 
   let count = 0;
   for (i = 0; i < 4; i++) {
@@ -56,4 +56,46 @@ function drawImages() {
   }
 }
 
+function drawQuote() {
+  $.getJSON(
+    "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?"
+  ).done(response => {
+    let maxLineWidth = canvas.width * 0.5;
+    let quoteText = response.quoteText;
+    let words = quoteText.split(' ');
+    console.log(words);
+    let lines = [];
+    let line = '';
+    for (let i = 0; i < words.length; i++) {
+      let newLine = line + words[i];
+      let newLineWidth = context.measureText(newLine).width;
+      if (newLineWidth > maxLineWidth) {
+        lines.push(line);
+        line = words[i] + ' ';
+      } else {
+        line = newLine + ' ';
+      }
+    }
+    lines.push(line);
+    console.log(lines);
+
+    let x = Math.floor(canvas.width / 2);
+    for (let i = 0; i < lines.length; i++) {
+      let y;
+      if (lines.length == 1) {
+        y = Math.floor(canvas.height / 2) + 25;
+      } else {
+        y = Math.floor(canvas.height / 2) + 25 +
+          Math.floor(50 * lines.length * (i / (lines.length - 1) - 1 / 2));
+      }
+
+      context.lineWidth = 3;
+      context.strokeText(lines[i], x, y);
+      context.lineWidth = 1;
+      context.fillText(lines[i], x, y);
+    }
+  });
+}
+
 drawImages();
+drawQuote();
