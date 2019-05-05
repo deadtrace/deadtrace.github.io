@@ -20,14 +20,17 @@ canvas.height = 650;
 body.appendChild(canvas);
 
 context = canvas.getContext('2d');
-context.font = "bold 50px sans-serif";
-context.strokeStyle = "white";
+context.font = "bold 50px Courier New";
+context.fillStyle = "white";
+context.shadowColor = "black";
+context.shadowBlur = 20;
 context.textAlign = "center";
 
-function drawImages() {
+function drawImages(callback) {
   let pics = [];
   for (let i = 0; i < 4; i++) {
     pics[i] = { img: new Image() };
+    pics[i].img.crossOrigin = "anonymous";
   }
 
   pics[0].x = pics[0].y = pics[1].y = pics[2].x = 0;
@@ -51,6 +54,7 @@ function drawImages() {
         for (j = 0; j < 4; j++) {
           context.drawImage(pics[j].img, pics[j].x, pics[j].y);
         }
+        callback();
       }
     }
   }
@@ -89,13 +93,28 @@ function drawQuote() {
           Math.floor(50 * lines.length * (i / (lines.length - 1) - 1 / 2));
       }
 
-      context.lineWidth = 3;
-      context.strokeText(lines[i], x, y);
       context.lineWidth = 1;
       context.fillText(lines[i], x, y);
     }
+    addGenerateListener();
   });
 }
 
-drawImages();
-drawQuote();
+function drawCollage() {
+  drawImages(drawQuote);
+}
+
+function addGenerateListener() {
+  $("#generate").one("click", () => {
+    drawCollage();
+  });
+}
+
+addGenerateListener();
+
+$("#save").click(() => {
+  var link = document.createElement("a");
+  link.download = "collage.png";
+  link.href = canvas.toDataURL();
+  link.click();
+});
