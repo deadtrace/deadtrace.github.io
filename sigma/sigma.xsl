@@ -6,13 +6,14 @@
                 <title>MathML in HTML5</title>
             </head>
             <body>
-                <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-                <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 <xsl:for-each select="root/*">
                     <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
                         <xsl:apply-templates select="." />
                     </math>
                 </xsl:for-each>
+                <h4 id="author" title="GossJS" align="center" style="font-family: Courier New;">Станислав Катюшин</h4>
+                <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+                <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
             </body>
         </html>
     </xsl:template>
