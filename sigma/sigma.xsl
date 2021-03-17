@@ -1,23 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:template match = "/">
-        <!-- HTML tags 
-         Used for formatting purpose. Processor will skip them and browser 
-            will simply render them. 
-      -->
-        <html>
-            <body>
-                <h2>Students</h2>
-                <table border = "1">
-                    <tr bgcolor = "#9acd32">
-                        <th>Roll No</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Nick Name</th>
-                        <th>Marks</th>
-                    </tr>
-                </table>
-            </body>
-        </html>
+    <xsl:template match="/">
+        <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+            <semantics>
+                <xsl:for-each select="root/*">
+                    <mrow>
+                        <xsl:apply-templates select="." />
+                    </mrow>
+                </xsl:for-each>
+            </semantics>
+        </math>
+    </xsl:template>
+    <xsl:template match="строка">
+        <mrow>
+            <xsl:for-each select="./*">
+                <xsl:apply-templates select="." />
+            </xsl:for-each>
+        </mrow>
+    </xsl:template>
+    <xsl:template match="операнд">
+        <mi>
+            <xsl:value-of select="." />
+        </mi>
+    </xsl:template>
+    <xsl:template match="оператор">
+        <mo>
+            <xsl:value-of select="." />
+        </mo>
+    </xsl:template>
+    <xsl:template match="число">
+        <mn>
+            <xsl:value-of select="." />
+        </mn>
+    </xsl:template>
+    <xsl:template match="корень">
+        <msqrt>
+            <xsl:for-each select="./*">
+                <xsl:apply-templates select="." />
+            </xsl:for-each>
+        </msqrt>
+    </xsl:template>
+    <xsl:template match="дробь">
+        <mfrac>
+            <xsl:for-each select="./*">
+                <xsl:apply-templates select="." />
+            </xsl:for-each>
+        </mfrac>
+    </xsl:template>
+    <xsl:template match="низверх">
+        <munderover>
+            <xsl:for-each select="./*">
+                <xsl:apply-templates select="." />
+            </xsl:for-each>
+        </munderover>
+    </xsl:template>
+    <xsl:template match="верх">
+        <msup>
+            <xsl:for-each select="./*">
+                <xsl:apply-templates select="." />
+            </xsl:for-each>
+        </msup>
+    </xsl:template>
+    <xsl:template match="низ">
+        <msub>
+            <xsl:for-each select="./*">
+                <xsl:apply-templates select="." />
+            </xsl:for-each>
+        </msub>
     </xsl:template>
     <xsl:stylesheet>
