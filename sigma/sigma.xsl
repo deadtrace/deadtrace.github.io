@@ -11,7 +11,7 @@
                         <xsl:apply-templates select="." />
                     </math>
                 </xsl:for-each>
-                <h4 id="author" title="GossJS" align="center" style="font-family: Courier New;">Станислав Катюшин</h4>
+                <h4 id="author" title="GossJS">Станислав Катюшин</h4>
                 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
                 <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
             </body>
