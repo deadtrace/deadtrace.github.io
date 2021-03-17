@@ -1,0 +1,56 @@
+@import "itmo_fonts/stylesheet.css"; 
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica;
+    font-size: 20px;
+    background-color: #2151A4;
+    font-family: 'ALS Schlange sans';
+    color: white;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.task {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.logo {
+    height: 160px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-info p {
+    font-size: 40px;
+}
+
+.header-info .person {
+    font-size: 25px;
+    align-self: flex-end;
+    padding-right: 60px;
+}
+
+.header-info > .person {
+    margin-top: 30px;
+}
+
+.header-info > .person ~ .person {
+    margin-top: 6px;
+}
