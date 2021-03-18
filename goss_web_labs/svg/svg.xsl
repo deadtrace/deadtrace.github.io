@@ -3,7 +3,7 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>MathML from XML</title>
+                <title>SVG from XML</title>
             </head>
             <body>
                 <xsl:for-each select="root/*">
