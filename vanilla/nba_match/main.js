@@ -16,26 +16,27 @@ let time = moment().set('minute', 12).set('second', 0);
 const initialTime = moment(time);
 const timeControl = moment(time).subtract(720, 'seconds');
 
-function wait(ms){
+function wait(ms) {
     var start = new Date().getTime();
     var end = start;
-    while(end < start + ms) {
-      end = new Date().getTime();
-   }
- }
+    while (end < start + ms) {
+        end = new Date().getTime();
+    }
+}
 
 function subtractTime(seconds) {
     time = time.subtract(seconds, 'seconds');
     if (time <= timeControl) {
         if (quarter === 4) {
             endOfGame = true;
-            timeLeft.innerText = 'FINAL GAME';
+            timeLeft.innerText = 'FINAL';
+            quarterNumber.style.display = 'none';
             return;
         }
 
         quarter++;
         time = moment(initialTime);
-        quarterNumber.innerText = quarter;
+        quarterNumber.innerText = quarter + ' quarter';
 
         if (quarter === 4) {
             currentPossession = initialPossession;
@@ -68,16 +69,25 @@ function simulateAttack() {
     currentPossession = !currentPossession;
 }
 
-function simulateQuarter() {
-    let currentQuarter = quarter;
-    while (!endOfGame && quarter === currentQuarter) {
-        simulateAttack();
+function simulateQuarter() {    
+    if (!endOfGame) {
+        let currentQuarter = quarter;
+        while (!endOfGame && quarter === currentQuarter) {
+            simulateAttack();
+        }
+    } else {
+        alert('The game is over');
     }
+
 }
 
 function simulateGame() {
-    while(!endOfGame) {
-        simulateAttack();
+    if (!endOfGame) {
+        while (!endOfGame) {
+            simulateAttack();
+        }
+    } else {
+        alert('The game is over');
     }
 }
 

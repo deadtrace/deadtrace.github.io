@@ -1,7 +1,6 @@
 * {
     padding: 0px;
     margin: 0px;
-    
 }
 
 body {
@@ -24,8 +23,7 @@ body {
     position: relative;
 }
 
-.away-team,
-.home-team {
+.away-team, .home-team {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +57,6 @@ body {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .buttons {
     display: flex;
     justify-content: center;
@@ -85,6 +82,59 @@ body {
     cursor: pointer;
 }
 
-.match-button + .match-button {
+.match-button+.match-button {
     margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .team-logo {
+        max-height: 80px;
+    }
+
+    .away-team, .home-team {
+        width: 100px;
+    }
+
+    .score-info {
+        width: 100px;
+        text-align: center;
+        color: white;
+        position: relative;
+        font-size: 22px;
+    }
+    
+    .quarter-info {
+        font-size: 12px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .match-button {
+        padding: 5px;
+        box-sizing: border-box;
+        width: 160px;
+    }
+
+    .match-button+.match-button {
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+
+    .match-button-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .team-logo {
+        max-height: 150px;
+    }
+
+    .away-team, .home-team {
+        width: 200px;
+    }
 }
