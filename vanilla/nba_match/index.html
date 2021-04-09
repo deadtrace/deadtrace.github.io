@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NBA Match Simulation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="match-box">
+                <div class="away-team">
+                    <img src="images/philadelphia.png" alt="" class="team-logo">
+                </div>
+                <div class="quarter-info">
+                    <p><span id="quarter">1</span> quarter</p>
+                    <p id="time-left">12:00</p>
+                </div>
+                <div class="score-info">
+                    <p><span id="away-score">0</span>:<span id="home-score">0</span></p>
+                </div>
+                <div class="home-team">
+                    <img src="images/celtics.png" alt="" class="team-logo">
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="match-button" id="simulate-attack">
+                    <p class="match-button-text">Simulate attack</p>
+                </button>
+                <button class="match-button" id="simulate-quarter">
+                    <p class="match-button-text">Simulate quarter</p>
+                </button>
+                <button class="match-button" id="simulate-game">
+                    <p class="match-button-text">Simulate game</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
