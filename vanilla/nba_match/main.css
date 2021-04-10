@@ -90,11 +90,9 @@ body {
     .team-logo {
         max-height: 80px;
     }
-
     .away-team, .home-team {
         width: 100px;
     }
-
     .score-info {
         width: 100px;
         text-align: center;
@@ -102,28 +100,23 @@ body {
         position: relative;
         font-size: 22px;
     }
-    
     .quarter-info {
         font-size: 12px;
     }
-
     .buttons {
         flex-direction: column;
         align-items: center;
         margin-top: 15px;
     }
-
     .match-button {
         padding: 5px;
         box-sizing: border-box;
         width: 160px;
     }
-
     .match-button+.match-button {
         margin-left: 0px;
         margin-top: 15px;
     }
-
     .match-button-text {
         font-size: 18px;
     }
@@ -133,7 +126,6 @@ body {
     .team-logo {
         max-height: 150px;
     }
-
     .away-team, .home-team {
         width: 200px;
     }
