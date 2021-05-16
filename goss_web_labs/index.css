@@ -1,12 +1,12 @@
-@import "itmo_fonts/stylesheet.css"; 
+@import "itmo_fonts/stylesheet.css";
 
 * {
     padding: 0;
     margin: 0;
     font-family: Helvetica;
     font-size: 20px;
-    background-color: #2151A4;
-    font-family: 'ALS Schlange sans';
+    background-color: #2151a4;
+    font-family: "ALS Schlange sans";
     color: white;
 }
 
@@ -20,6 +20,29 @@
 .task {
     text-decoration: none;
     font-size: 30px;
+    transition-duration: 2s;
+}
+
+.task {
+    display: inline-block;
+}
+
+.task::after {
+    content: "";
+    width: 0px;
+    height: 2px;
+    display: block;
+    background: transparent;
+    transition: 800ms;
+}
+
+.task:hover::after {
+    background: white;
+    width: 100%;
+}
+
+.task + .task {
+    margin-top: 10px;
 }
 
 .logo {
@@ -63,5 +86,5 @@
 
 .divider-line {
     width: 50%;
-    border-bottom: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }

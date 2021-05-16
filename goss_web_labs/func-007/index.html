@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FUNC-007 Рекурсивные функции</title>
+        <meta charset="utf-8" />
+        <meta name="author" content="Станислав Катюшин" />
+    </head>
+    <body>
+        <div>Вся информация в консоли</div>
+        <script>
+            {
+                let functionsStack = [];
+                const sec = (a) => {
+                    functionsStack.push("sec");
+                    return 1 + a;
+                };
+                const add = (a, b) => {
+                    functionsStack.push("add");
+                    return b === 0 ? a : sec(add(a, b - 1));
+                };
+                const mpy = (a, b) => {
+                    functionsStack.push("mpy");
+                    return b === 1 ? a : add(a, mpy(a, b - 1));
+                };
+                const pwr = (a, b) => {
+                    functionsStack.push("pwr");
+                    if (b === 0) {
+                        return 1;
+                    } else if (b === 1) {
+                        return a;
+                    } else {
+                        return mpy(a, pwr(a, b - 1));
+                    }
+                };
+
+                let lastCombination = {};
+
+                testloop: for (let a = 1; a <= 100; a++) {
+                    for (let b = 1; b <= 10; b++) {
+                        functionsStack = [];
+                        try {
+                            result = pwr(a, b);
+                            lastCombination = {
+                                a,
+                                b,
+                                result,
+                                stack: functionsStack,
+                            };
+                        } catch {
+                            console.log(
+                                `Переполнение стэка случилось при a=${a} и b=${b}`
+                            );
+                            break testloop;
+                        }
+                    }
+                }
+
+                console.log(
+                    `Последняя комбинация, при которой не было переполнения: a=${lastCombination.a}, b=${lastCombination.b}`
+                );
+                console.log(
+                    `Функция seс была вызвана ${
+                        lastCombination.stack.filter(
+                            (command) => command === "sec"
+                        ).length
+                    } раз`
+                );
+                console.log(
+                    `Функция add была вызвана ${
+                        lastCombination.stack.filter(
+                            (command) => command === "add"
+                        ).length
+                    } раз`
+                );
+                console.log(
+                    `Функция mpy была вызвана ${
+                        lastCombination.stack.filter(
+                            (command) => command === "mpy"
+                        ).length
+                    } раз`
+                );
+                console.log(
+                    `Функция pwr была вызвана ${
+                        lastCombination.stack.filter(
+                            (command) => command === "pwr"
+                        ).length
+                    } раз`
+                );
+                console.log(
+                    `Всего было ${lastCombination.stack.length} вызовов`
+                );
+                console.log(lastCombination);
+
+                /*
+   Допишите определение функции pwr от a и b, которая определяется через себя и mpy и выдаёт a ** b для положительных целых чисел.
+   Выясните, при каких значениях аргументов наступает переполнение стека. Проиллюстрируйте это деревом вызовов, т.е. постройте дерево для последней комбинации значений аргументов pwr, при которой не происходит переполнения.
+   Нам нужно выяснить, сколько раз вызывается при этом каждая из базовых функций (sec, add, mpy).
+   
+   Ранее: recur_task
+
+*/
+            }
+        </script>
+    </body>
+</html>
