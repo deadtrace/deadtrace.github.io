@@ -116,7 +116,7 @@
 
 @keyframes personMovementFromRight {
     0% {
-        left: 50%;
+        left: 100%;
     }
     100% {
         left: 0%;
@@ -134,7 +134,7 @@
 
     .header-info .person {
         font-size: 14px;
-        padding-right: 30px;
+        padding-right: 15px;
     }
 
     .task {
@@ -183,27 +183,28 @@
 }
 
 .task-container-1 {
-    animation: 6s fadein1 linear;
+    animation-delay: 1s;
+    animation: 3s fadein1 linear;
 }
 
 .task-container-2 {
-    animation: 6s fadein2 linear;
+    animation: 3s fadein2 linear;
 }
 
 .task-container-3 {
-    animation: 6s fadein3 linear;
+    animation: 3s fadein3 linear;
 }
 
 .task-container-4 {
-    animation: 6s fadein4 linear;
+    animation: 3s fadein4 linear;
 }
 
 .task-container-5 {
-    animation: 6s fadein5 linear;
+    animation: 3s fadein5 linear;
 }
 
 .task-container-6 {
-    animation: 6s fadein6 linear;
+    animation: 3s fadein6 linear;
 }
 
 @keyframes fadein1 {
