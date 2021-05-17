@@ -21,7 +21,6 @@
 .task {
     text-decoration: none;
     font-size: 30px;
-    transition-duration: 2s;
 }
 
 .task {
@@ -110,7 +109,7 @@
 }
 
 .person {
-    animation: personMovementFromRight 1s linear;
+    animation: personMovementFromRight 1.5s linear;
     position: relative;
 }
 
@@ -139,6 +138,10 @@
 
     .task {
         font-size: 25px;
+    }
+
+    .person {
+        animation: personMovementFromRight 1s linear;
     }
 }
 
