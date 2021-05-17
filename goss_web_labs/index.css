@@ -181,3 +181,114 @@
 .task-button:hover {
     cursor: pointer;
 }
+
+.task-container-1 {
+    animation: 6s fadein1 linear;
+}
+
+.task-container-2 {
+    animation: 6s fadein2 linear;
+}
+
+.task-container-3 {
+    animation: 6s fadein3 linear;
+}
+
+.task-container-4 {
+    animation: 6s fadein4 linear;
+}
+
+.task-container-5 {
+    animation: 6s fadein5 linear;
+}
+
+.task-container-6 {
+    animation: 6s fadein6 linear;
+}
+
+@keyframes fadein1 {
+    0% {
+        opacity: 0;
+    }
+    14% {
+        opacity: 0;
+    }
+    28% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein2 {
+    0% {
+        opacity: 0;
+    }
+    28% {
+        opacity: 0;
+    }
+    42% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein3 {
+    0% {
+        opacity: 0;
+    }
+    42% {
+        opacity: 0;
+    }
+    56% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein4 {
+    0% {
+        opacity: 0;
+    }
+    56% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein5 {
+    0% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    84% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein6 {
+    0% {
+        opacity: 0;
+    }
+    84% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
