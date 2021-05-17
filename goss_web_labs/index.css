@@ -8,6 +8,7 @@
     background-color: #2151a4;
     font-family: "ALS Schlange sans";
     color: white;
+    overflow: hidden;
 }
 
 .tasks {
@@ -42,6 +43,14 @@
 }
 
 .task + .task {
+    margin-top: 10px;
+}
+
+.task-container {
+    text-align: center;
+}
+
+.task-container + .task-container {
     margin-top: 10px;
 }
 
@@ -98,4 +107,77 @@
 .divider-line {
     width: 50%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.person {
+    animation: personMovementFromRight 1s linear;
+    position: relative;
+}
+
+@keyframes personMovementFromRight {
+    0% {
+        left: 50%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+@media (max-width: 900px) {
+    .header-info p {
+        font-size: 16px;
+    }
+
+    .logo {
+        height: 100px;
+    }
+
+    .header-info .person {
+        font-size: 14px;
+        padding-right: 30px;
+    }
+
+    .task {
+        font-size: 25px;
+    }
+}
+
+.semester-work-name {
+    transition-duration: 0.5s;
+    text-align: center;
+}
+
+.semester-work-name:hover {
+    cursor: default;
+}
+
+.semester-work + .semester-work-name {
+    opacity: 0;
+}
+
+.semester-work:hover + .semester-work-name {
+    opacity: 100%;
+}
+
+.task-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-github-button {
+    height: 30px;
+    display: block;
+}
+
+.task-button {
+    text-decoration: none;
+}
+
+.task-button + .task-button {
+    margin-left: 10px;
+}
+
+.task-button:hover {
+    cursor: pointer;
 }
