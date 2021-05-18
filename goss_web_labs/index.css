@@ -8,7 +8,7 @@
     background-color: #2151a4;
     font-family: "ALS Schlange sans";
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .tasks {
