@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Станислав Катюшин" />
+        <title>Fetch task</title>
+    </head>
+    <body>
+        <button>Поехали</button>
+        <ol id="values">
+            <li>10</li>
+            <li>20</li>
+            <li>30</li>
+        </ol>
+        <ol id="urls">
+            <li>https://kodaktor.ru/api/m/</li>
+            <li>https://kodaktor.ru/api/MS2/</li>
+            <li>https://kodaktor.ru/api/MS3/</li>
+        </ol>
+        <script>
+            let result = "";
+            const values = [...document.querySelectorAll("#values li")].map(
+                (item) => +item.textContent
+            );
+            const URLs = [...document.querySelectorAll("#urls li")].map(
+                (item) => item.textContent
+            );
+            document
+                .querySelector("button")
+                .addEventListener("click", async ({ target: t }) => {
+                    let answer = "";
+                    for (let i = 0; i < 3; i++) {
+                        let url = answer
+                            ? `${URLs[i]}${values[i]}/${answer}`
+                            : `${URLs[i]}${values[i]}`;
+                        await fetch(url)
+                            .then((response) => response.text())
+                            .then((data) => {
+                                let doc = document.createElement("div");
+                                doc.innerHTML = data;
+                                answer = doc.querySelector("span").textContent;
+                            });
+                    }
+                    t.textContent = `Результат: ${answer}`;
+                });
+        </script>
+    </body>
+</html>
