@@ -30,20 +30,26 @@
             document
                 .querySelector("button")
                 .addEventListener("click", async ({ target: t }) => {
-                    let answer = "";
-                    for (let i = 0; i < 3; i++) {
-                        let url = answer
-                            ? `${URLs[i]}${values[i]}/${answer}`
-                            : `${URLs[i]}${values[i]}`;
-                        await fetch(url)
-                            .then((response) => response.text())
-                            .then((data) => {
-                                let doc = document.createElement("div");
-                                doc.innerHTML = data;
-                                answer = doc.querySelector("span").textContent;
-                            });
+                    try {
+                        t.textContent = `Загрузка`;
+                        let answer = "";
+                        for (let i = 0; i < 3; i++) {
+                            let url = answer
+                                ? `${URLs[i]}${values[i]}/${answer}`
+                                : `${URLs[i]}${values[i]}`;
+                            await fetch(url)
+                                .then((response) => response.text())
+                                .then((data) => {
+                                    let doc = document.createElement("div");
+                                    doc.innerHTML = data;
+                                    answer =
+                                        doc.querySelector("span").textContent;
+                                });
+                        }
+                        t.textContent = `Результат: ${answer}`;
+                    } catch {
+                        t.textContent = `Ошибка`;
                     }
-                    t.textContent = `Результат: ${answer}`;
                 });
         </script>
     </body>
