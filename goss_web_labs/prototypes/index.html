@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="author" content="Станислав Катюшин" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Цепочка прототипов</title>
+    </head>
+    <body>
+        <a
+            href="https://github.com/deadtrace/deadtrace.github.io/blob/master/goss_web_labs/prototypes/index.html"
+            >Исходный код</a
+        >
+        <script type="module">
+            import { o3 } from "https://cdn.skypack.dev/goss_proto@1.0.0";
+
+            function getPrototypeChain(obj) {
+                let proto = Object.getPrototypeOf(obj);
+                let chain = obj.name;
+                let counter = 0;
+
+                while (proto) {
+                    chain +=
+                        `\n` +
+                        `       `.repeat(counter) +
+                        `|` +
+                        `\n` +
+                        `       `.repeat(counter) +
+                        `--> ` +
+                        `${proto.name}`;
+                    proto = Object.getPrototypeOf(proto);
+                    counter += 1;
+                }
+
+                return chain;
+            }
+
+            alert("Chain of prototypes:\n" + getPrototypeChain(o3));
+            console.log("Chain of prototypes:\n" + getPrototypeChain(o3));
+            console.log(o3);
+        </script>
+        <style>
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </body>
+</html>
